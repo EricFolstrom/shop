@@ -1,0 +1,24 @@
+{% extends 'products/base.html' %}
+
+{% block content %}
+<h1 class="single-title">{{product.title}}</h1>
+
+<div class="single-wrapper">
+    <div class="product-single">
+        <div class="single-header">
+            <a href="{% url 'details' product.id  %}"><img src="{{ product.image.url }}" alt="product image"></a>
+        </div>
+        <div class="single-body">
+            <p>{{product.description}}</p>
+        </div>
+    </div>
+    
+    <div class="add-to-cart">
+        <form action="">
+            
+            <button class="btn-add-to-cart">Add To Cart</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

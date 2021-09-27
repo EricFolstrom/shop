@@ -1,0 +1,29 @@
+{% extends 'products/base.html' %}
+
+{% block content %}
+<div class="cart">
+
+    {% if cart_count > 0 %}
+        <div class="header">
+            <div class="product-title">Title</div>
+            <div class="product-link">Link</div>
+        </div>
+        <div class="product-item-wrapper">
+            {% for cart_item in cart %}
+                <div class="product-item">
+                    <div class="product-title">{{ cart_item.title }}</div>
+                    <div class="product-link"><a href="{% url 'details' cart_item.product_id %}">details</a></div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="no-item">
+            <p>Your cart is empty</p>
+            <a href="{% url 'home' %}">Return to shop</a>
+        </div>
+    {% endif %}
+
+    
+</div>
+
+{% endblock %}

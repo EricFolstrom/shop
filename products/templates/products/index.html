@@ -1,0 +1,26 @@
+{% extends 'products/base.html' %}
+
+{% block content %}
+<h1 class="home-title">Recent Products</h1>
+
+<div class="product-list">
+    {% for product in products %}
+        <div class="product-cart">
+            <div class="cart-header">
+                <a href="{% url 'details' product.id  %}"><img src="{{ product.image.url }}" alt="product image"></a>
+            </div>
+            <div class="cart-body">
+                <a href=""><h3>{{product.title}}</h3></a>
+                <p>{{product.description}}</p>
+                <div class="add-to-cart">
+                    <form action="">
+                        
+                        <button class="btn-add-to-cart">Add To Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
